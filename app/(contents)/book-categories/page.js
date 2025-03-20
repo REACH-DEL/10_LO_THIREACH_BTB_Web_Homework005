@@ -1,5 +1,5 @@
 import BookCard from "@/app/components/BookCard";
-import ContentHeader from "@/app/components/ContentHeader";
+import ContentHeader from "@/app/components/Content";
 import { getAllBooks, getBooksByCategory } from "@/app/services/books-service";
 import { getBookCategoryById } from "@/app/services/category-service";
 

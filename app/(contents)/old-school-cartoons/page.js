@@ -1,18 +1,21 @@
 import CartoonCard from "@/app/components/CartoonCard";
-import ContentHeader from "@/app/components/ContentHeader";
-import { getAllCartoon, getCartoonsByGenr } from "@/app/services/cartoons-service";
+import ContentHeader from "@/app/components/Content";
+import {
+  getAllCartoon,
+  getCartoonsByGenr,
+} from "@/app/services/cartoons-service";
 import { getCartoonGenreById } from "@/app/services/category-service";
 
-export default async function Cartoon({searchParams}) {
-  const genrId = (await searchParams).categoryId
-  const search = (await searchParams).search
+export default async function Cartoon({ searchParams }) {
+  const genrId = (await searchParams).categoryId;
+  const search = (await searchParams).search;
   let title = "Old School Cartoons";
-  if(genrId){
-    const genr = await getCartoonGenreById(genrId)
-    title = genr.cartoon_genre
+  if (genrId) {
+    const genr = await getCartoonGenreById(genrId);
+    title = genr.cartoon_genre;
   }
   const cartoons = await getAllCartoon(genrId, search);
-   
+
   return (
     <ContentHeader
       title={title}

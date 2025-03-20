@@ -1,4 +1,4 @@
-import ContentHeader from "../components/ContentHeader";
+import ContentHeader from "../components/Content";
 import HomepageCard from "../components/HompageCard";
 
 export default function Home() {

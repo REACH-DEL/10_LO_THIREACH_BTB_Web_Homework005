@@ -4,14 +4,14 @@ import { getAllCartoon, getCartoonsByGenr } from "@/app/services/cartoons-servic
 import { getCartoonGenreById } from "@/app/services/category-service";
 
 export default async function Cartoon({searchParams}) {
-  const genrId = (await searchParams)?.categoryId
+  const genrId = (await searchParams).categoryId
+  const search = (await searchParams).search
   let title = "Old School Cartoons";
-  let cartoons = [] 
   if(genrId){
     const genr = await getCartoonGenreById(genrId)
     title = genr.cartoon_genre
-    cartoons = await getCartoonsByGenr(genrId)
-  }else cartoons = await getAllCartoon();
+  }
+  const cartoons = await getAllCartoon(genrId, search);
    
   return (
     <ContentHeader

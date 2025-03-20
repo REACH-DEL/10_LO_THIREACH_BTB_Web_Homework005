@@ -18,7 +18,7 @@ export default function Sidebar() {
         </div>
         <Navlink />
         <div className="mx-5 mt-10 flex gap-2 rounded-lg px-8 py-3 text-xl font-medium text-[#0B3954] bg-gray-100 hover:bg-slate-200">
-          <Image src={"/icons/setting.svg"} width={24} height={24} alt="setting icon"/>
+          <Image src={"/icons/setting.svg"} width={24} height={24} alt="setting icon" className="w-auto h-auto"/>
           <span className="">Settings</span>
         </div>
       </div>

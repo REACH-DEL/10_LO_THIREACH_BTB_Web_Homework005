@@ -1,6 +1,6 @@
-export async function getAllBooks() {
-  const res = await fetch("https://nextjs-homework005.vercel.app/api/book", {
-    next: { revalidate: 30 },
+export async function getAllBooks(id = "", search = "") {
+  const res = await fetch(`https://nextjs-homework005.vercel.app/api/book?query=${id}&search=${search}`, {
+    next: { revalidate: 15 },
   });
   const resBooks = await res.json();
   if (resBooks.status === 200) {
@@ -18,11 +18,4 @@ export async function getBookById(bookId) {
   return {};
 }
 
-export async function getBooksByCategory(cateId){
-  const res = await fetch(`https://nextjs-homework005.vercel.app/api/book?query=${cateId}`);
-  const books = await res.json();
-  if (books.status === 200){
-    return books.payload;
-  }
-  return [];
-}
+

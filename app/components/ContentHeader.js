@@ -19,7 +19,7 @@ export default async function ContentHeader({ title, types, children }) {
         <div className="bg-slate-100 px-6 py-2 rounded-xl w-fit h-fit">
           <span className="text-lg font-semibold text-[#087E8B]">{title}</span>
         </div>
-        {types ? <CategorySelect type={types} options={options}/> : null}
+        {types ? <CategorySelect options={options}/> : null}
       </div>
       <hr color="[#0B3954]" className="mt-2 text-[2px]"/>
       {children}

@@ -15,7 +15,7 @@ export default function Navlink() {
               `flex gap-2 rounded-lg px-8 py-2 text-lg font-medium text-[#0B3954] hover:bg-gray-100 hover:font-bold ${pathname === i.path ? "bg-gray-200": "bg-none"}`
             }
           >
-            <Image src={i.icon} width={22} height={22} alt="icon"></Image>
+            <Image src={i.icon} width={22} height={22} alt="icon" className="w-auto h-auto"/>
             {i.title}
           </Link>
         </li>

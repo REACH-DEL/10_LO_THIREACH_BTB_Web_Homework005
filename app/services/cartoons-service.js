@@ -1,5 +1,5 @@
-export async function getAllCartoon() {
-  const res = await fetch("https://nextjs-homework005.vercel.app/api/cartoon");
+export async function getAllCartoon(genrId = "", search = "") {
+  const res = await fetch(`https://nextjs-homework005.vercel.app/api/cartoon?query=${genrId}&search=${search}`);
   const resData = await res.json();
   if (resData.status === 200) {
     return resData.payload;
@@ -18,13 +18,3 @@ export async function getCartoonById(id) {
   return {};
 }
 
-export const getCartoonsByGenr = async (genrId) => {
-  const res = await fetch(
-    `https://nextjs-homework005.vercel.app/api/cartoon?genre=${genrId}`
-  );
-  const cartoons = await res.json();
-  if(cartoons.status === 200){
-    return cartoons.payload;
-  }
-  return []
-};

@@ -1,6 +1,16 @@
+"use client"
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 export default function SearchInput() {
+  const router = useRouter();
+  const [path, setPath] = useState("");
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    router.replace(`?search=${path}`)
+  }
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <div className="relative">
         <button className="cursor-pointer">
           <svg
@@ -22,9 +32,10 @@ export default function SearchInput() {
         </button>
         <input
           placeholder="Search book or category"
-          className="w-full bg-white py-3 pl-14 pr-5 rounded-full h-12 border-none focus:border-none focus:ring-0 focus:outline-deep-teal"
+          className="w-full bg-white py-3 pl-14 pr-5 rounded-full h-12 border-none focus:border-none focus:ring-1 focus:outline-[#087E8B]"
           type="text"
           name="search"
+          onChange={(e)=>{setPath(e.target.value)}}
         />
       </div>
     </form>

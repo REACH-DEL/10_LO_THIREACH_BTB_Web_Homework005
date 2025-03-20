@@ -2,10 +2,11 @@ import Link from "next/link";
 
 export default function CartoonCard({ ...cartoon }) {
   return (
-    <Link className="w-fit" href={`/old-school-cartoons/${cartoon.id}`}>
-      <div className="rounded-2xl h-[400px] w-[320px] overflow-hidden">
+    <Link className="w-full" href={`/old-school-cartoons/${cartoon.id}`}>
+      <div className="rounded-2xl h-[400px] w-full max-w-[320px] overflow-hidden">
         <img
           src={cartoon.image}
+          className="w-full"
           width={320}
           height={380}
           alt="cartoons image"
